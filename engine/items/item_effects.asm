@@ -308,7 +308,6 @@ PokeBallEffect:
 	srl b
 	rr c
 
-	; BUG: Catch rate formula breaks for Pokémon with max HP > 341 (see docs/bugs_and_glitches.md)
 	ld a, c
 	and a
 	jr nz, .okay_1

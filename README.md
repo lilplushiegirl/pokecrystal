@@ -2,7 +2,7 @@
 
 lilplushiegirlrepository
 
-This is a disassembly of Pokémon Crystal.
+This is a work-in-progress romhack based on the disassembly of Pokémon Crystal.
 
 It builds the following ROMs:
 
@@ -18,13 +18,7 @@ To set up the repository, see [INSTALL.md](INSTALL.md).
 
 ## See also
 
-- [**FAQ**](FAQ.md)
-- [**Documentation**][docs]
-- [**Wiki**][wiki] (includes [tutorials][tutorials])
-- [**Symbols**][symbols]
-- [**Tools**][tools]
-
-You can find us on [Discord (pret, #pokecrystal)](https://discord.gg/d5dubZ3).
+You can find the pret team on [Discord (pret, #pokecrystal)](https://discord.gg/d5dubZ3).
 
 For other pret projects, see [pret.github.io](https://pret.github.io/).
 
