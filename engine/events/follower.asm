@@ -43,12 +43,9 @@ FollowerInteractionTable:
 	interaction CELEBI,     -1,           -1,       LANDMARK_ILEX_FOREST,    -1,                       -1,       -1,         -1,                          IlexForestCelebiInteraction
 	interaction HERACROSS,  -1,           -1,       LANDMARK_ILEX_FOREST,    -1,                       -1,       -1,         -1,                          HeracrossInteraction
 	interaction SUDOWOODO,  -1,           -1,       LANDMARK_ROUTE_36,       -1,                       -1,       -1,         -1,                          Route36Interaction
-	interaction CLEFAIRY,   -1,           -1,       LANDMARK_GOLDENROD_CITY, MAP_GOLDENROD_GYM,        -1,       -1,         -1,                          GoldenrodGymInteraction
 	interaction -1,         ELECTRIC,     -1,       LANDMARK_RADIO_TOWER,    -1,                       -1,       -1,         -1,                          RadioTowerElectricInteraction
 	interaction -1,         GHOST,        -1,       LANDMARK_RADIO_TOWER,    -1,                       -1,       -1,         -1,                          RadioTowerGhostInteraction
 	interaction -1,         BUG,          -1,       LANDMARK_NATIONAL_PARK,  -1,                       -1,       -1,         -1,                          NationalParkInteraction
-	interaction PICHU,      -1,           -1,       LANDMARK_ECRUTEAK_CITY,  MAP_DANCE_THEATER,        -1,       -1,         -1,                          DanceTheaterPichuInteraction
-	interaction BELLOSSOM,  -1,           -1,       LANDMARK_ECRUTEAK_CITY,  MAP_DANCE_THEATER,        -1,       -1,         -1,                          DanceTheaterBellossomInteraction
 	interaction RAIKOU,     -1,           -1,       LANDMARK_BURNED_TOWER,   -1,                       -1,       -1,         -1,                          BurnedTowerLegendaryDogInteraction
 	interaction ENTEI,      -1,           -1,       LANDMARK_BURNED_TOWER,   -1,                       -1,       -1,         -1,                          BurnedTowerLegendaryDogInteraction
 	interaction SUICUNE,    -1,           -1,       LANDMARK_BURNED_TOWER,   -1,                       -1,       -1,         -1,                          BurnedTowerLegendaryDogInteraction
@@ -67,13 +64,8 @@ FollowerInteractionTable:
 	interaction -1,         FLYING,       -1,       LANDMARK_ROUTE_18,       -1,                       -1,       -1,         -1,                          Route18FlyingInteraction
 	interaction MAGIKARP,   -1,           -1,       LANDMARK_LAKE_OF_RAGE,   -1,                       -1,       -1,         -1,                          LakeOfRageMagikarpInteraction
 	interaction GYARADOS,   -1,           -1,       LANDMARK_LAKE_OF_RAGE,   -1,                       -1,       -1,         -1,                          LakeOfRageGyradosInteraction
-	interaction ELECTRODE,  -1,           -1,       LANDMARK_MAHOGANY_TOWN,  MAP_TEAM_ROCKET_BASE_B1F, -1,       -1,         -1,                          TeamRocketBaseInteraction
-	interaction ELECTRODE,  -1,           -1,       LANDMARK_MAHOGANY_TOWN,  MAP_TEAM_ROCKET_BASE_B2F, -1,       -1,         -1,                          TeamRocketBaseInteraction
-	interaction ELECTRODE,  -1,           -1,       LANDMARK_MAHOGANY_TOWN,  MAP_TEAM_ROCKET_BASE_B3F, -1,       -1,         -1,                          TeamRocketBaseInteraction
 	interaction -1,         ICE,          -1,       LANDMARK_ICE_PATH,       -1,                       -1,       -1,         -1,                          ColdIceMonInteraction
 	interaction -1,         GRASS,        -1,       LANDMARK_ICE_PATH,       -1,                       -1,       -1,         -1,                          ColdGrassMonInteraction
-	interaction -1,         ICE,          -1,       LANDMARK_MAHOGANY_TOWN,  MAP_MAHOGANY_GYM,         -1,       -1,         -1,                          ColdIceMonInteraction
-	interaction -1,         GRASS,        -1,       LANDMARK_MAHOGANY_TOWN,  MAP_MAHOGANY_GYM,         -1,       -1,         -1,                          ColdGrassMonInteraction
 	interaction -1,         DRAGON,       -1,       LANDMARK_DRAGONS_DEN,    -1,                       -1,       -1,         -1,                          DragonsDenInteraction
 	interaction MEGANIUM,   -1,           -1,       LANDMARK_VICTORY_ROAD,   -1,                       -1,       -1,         -1,                          VictoryRoadMeganiumInteraction
 	interaction TYPHLOSION, -1,           -1,       LANDMARK_VICTORY_ROAD,   -1,                       -1,       -1,         -1,                          VictoryRoadTyphlosionInteraction
@@ -96,7 +88,6 @@ FollowerInteractionTable:
 	interaction -1,         ROCK,         -1,       LANDMARK_ROCK_TUNNEL,    -1,                       -1,       -1,         -1,                          RockTunnelRockMonInteraction
 	interaction DIGLETT,    -1,           -1,       LANDMARK_DIGLETTS_CAVE,  -1,                       -1,       -1,         -1,                          DiglettsCaveInteraction
 	interaction DUGTRIO,    -1,           -1,       LANDMARK_DIGLETTS_CAVE,  -1,                       -1,       -1,         -1,                          DiglettsCaveInteraction
-	interaction -1,         PSYCHIC_TYPE, -1,       LANDMARK_SAFFRON_CITY,   MAP_MR_PSYCHICS_HOUSE,    -1,       -1,         -1,                          MrPsychicsHouseInteraction
 	interaction PORYGON,    -1,           -1,       LANDMARK_CELADON_CITY,   -1,                       -1,       -1,         -1,                          CeladonCityPorygonInteraction
 	interaction -1,         GHOST,        -1,       LANDMARK_LAVENDER_TOWN,  -1,                       -1,       -1,         -1,                          LavendarTownInteraction
 	; Note: the Default Interaction should always be last!
