@@ -21,7 +21,7 @@
 	tilecoll FLOOR, WALL, FLOOR, WALL ; 14
 	tilecoll WALL, WALL, FLOOR, WALL ; 15
 	tilecoll FLOOR, WALL, FLOOR, WALL ; 16
-	tilecoll FLOOR, WALL, FLOOR, FLOOR ; 17
+	tilecoll WALL, FLOOR, FLOOR, FLOOR ; 17
 	tilecoll WALL, WALL, RADIO, PC ; 18
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 19
 	tilecoll WALL, WALL, RADIO, FLOOR ; 1a
