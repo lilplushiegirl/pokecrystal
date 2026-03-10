@@ -38,57 +38,31 @@ MeetMomScript:
 	promptbutton
 	getstring STRING_BUFFER_4, PokegearName
 	scall PlayersHouse1FReceiveItemStd
+   	; full pokegear
 	setflag ENGINE_POKEGEAR
 	setflag ENGINE_PHONE_CARD
 	setflag ENGINE_MAP_CARD
+	setflag ENGINE_RADIO_CARD
+	setflag ENGINE_EXPN_CARD
+	; pokedex
+	setflag ENGINE_POKEDEX
 	addcellnum PHONE_MOM
 	setscene SCENE_PLAYERSHOUSE1F_NOOP
 	setevent EVENT_PLAYERS_HOUSE_MOM_1
 	clearevent EVENT_PLAYERS_HOUSE_MOM_2
 	writetext MomGivesPokegearText
 	promptbutton
-	special SetDayOfWeek
-.SetDayOfWeek:
-	writetext IsItDSTText
-	yesorno
-	iffalse .WrongDay
-	special InitialSetDSTFlag
-	yesorno
-	iffalse .SetDayOfWeek
-	sjump .DayOfWeekDone
-
-.WrongDay:
-	special InitialClearDSTFlag
-	yesorno
-	iffalse .SetDayOfWeek
-.DayOfWeekDone:
-	writetext ComeHomeForDSTText
-	yesorno
-	iffalse .ExplainPhone
-	sjump .KnowPhone
-
-.KnowPhone:
-	writetext KnowTheInstructionsText
-	promptbutton
-	sjump .FinishPhone
-
-.ExplainPhone:
-	writetext DontKnowTheInstructionsText
-	promptbutton
-	sjump .FinishPhone
 
 .FinishPhone:
-	writetext InstructionsNextText
-	waitbutton
 	writetext GetStarterText
 	promptbutton
 	waitsfx
-	getmonname STRING_BUFFER_3, PIKACHU
+	getmonname STRING_BUFFER_3, TOGEPI
 	writetext ReceivedStarterText
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke PIKACHU, 5, BERRY
+	givepoke TOGEPI, 5, BERRY
 	closetext
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	iftrue .FromRight
@@ -221,42 +195,11 @@ MomWalksBackMovement:
 	step_end
 
 ElmsLookingForYouText:
-	text "Oh, <PLAYER>…! Our"
-	line "neighbor, PROF."
-
-	para "ELM, was looking"
-	line "for you."
-
-	para "He said he wanted"
-	line "you to do some-"
-	cont "thing for him."
-
-	para "Oh! I almost for-"
-	line "got! Your #MON"
-
-	para "GEAR is back from"
-	line "the repair shop."
-
-	para "Here you go!"
+	text "Here you go!"
 	done
 
 MomGivesPokegearText:
-	text "#MON GEAR, or"
-	line "just #GEAR."
-
-	para "It's essential if"
-	line "you want to be a"
-	cont "good trainer."
-
-	para "It comes with a"
-	line "CLOCK, PHONE,"
-	cont "and TOWN MAP!"
-
-	para "Oh, the day of the"
-	line "week isn't set."
-
-	para "You mustn't forget"
-	line "that!"
+	text "It's essential."
 	done
 
 IsItDSTText:
@@ -305,9 +248,8 @@ InstructionsNextText:
 	done
 
 GetStarterText:
-	text "One more thing!"
-	line "Here's your first"
-	cont "#MON!"
+	text "Here's your first"
+	line "#MON!"
 	done
 
 ReceivedStarterText:
@@ -414,8 +356,8 @@ PlayersHouse1F_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  6,  7, NEW_BARK_TOWN, 1
-	warp_event  7,  7, NEW_BARK_TOWN, 1
+	warp_event  6,  7, APARTMENT_HALL, 1
+	warp_event  7,  7, APARTMENT_HALL, 1
 	warp_event  9,  0, PLAYERS_HOUSE_2F, 1
 
 	def_coord_events

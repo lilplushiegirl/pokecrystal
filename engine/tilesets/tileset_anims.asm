@@ -219,6 +219,19 @@ TilesetIcePathAnim:
 	dw NULL,  FlickeringCaveEntrancePalette
 	dw NULL,  DoneTileAnimation
 
+TilesetCityAnim:
+	dw vTiles2 tile $14, AnimateWaterTile
+	dw NULL,  WaitTileAnimation
+	dw NULL,  WaitTileAnimation
+	dw NULL,  WaitTileAnimation
+	dw NULL,  AnimateWaterPalette
+	dw NULL,  WaitTileAnimation
+	dw NULL,  AnimateFlowerTile
+	dw NULL,  WaitTileAnimation
+	dw NULL,  WaitTileAnimation
+	dw NULL,  StandingTileFrame8
+	dw NULL,  DoneTileAnimation
+
 TilesetTowerAnim:
 	dw TowerPillarTilePointer9, AnimateTowerPillarTile
 	dw TowerPillarTilePointer10, AnimateTowerPillarTile

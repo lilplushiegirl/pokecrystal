@@ -629,69 +629,14 @@ Continue_DisplayGameTime:
 	jp PrintNum
 
 OakSpeech:
-	farcall InitClock
 	call RotateFourPalettesLeft
 	call ClearTilemap
 
-	ld de, MUSIC_ROUTE_30
+	ld de, MUSIC_RUINS_OF_ALPH_RADIO
 	call PlayMusic
 
 	call RotateFourPalettesRight
 	call RotateThreePalettesRight
-	xor a
-	ld [wCurPartySpecies], a
-	ld a, POKEMON_PROF
-	ld [wTrainerClass], a
-	call Intro_PrepTrainerPic
-
-	ld b, SCGB_TRAINER_OR_MON_FRONTPIC_PALS
-	call GetSGBLayout
-	call Intro_RotatePalettesLeftFrontpic
-
-	ld hl, OakText1
-	call PrintText
-if !DEF(_DEBUG)
-	call RotateThreePalettesRight
-	call ClearTilemap
-
-	ld a, WOOPER
-	ld [wCurSpecies], a
-	ld [wCurPartySpecies], a
-	call GetBaseData
-
-	hlcoord 6, 4
-	call PrepMonFrontpic
-
-	xor a
-	ld [wTempMonDVs], a
-	ld [wTempMonDVs + 1], a
-
-	ld b, SCGB_TRAINER_OR_MON_FRONTPIC_PALS
-	call GetSGBLayout
-	call Intro_WipeInFrontpic
-
-	ld hl, OakText2
-	call PrintText
-	ld hl, OakText4
-	call PrintText
-	call RotateThreePalettesRight
-	call ClearTilemap
-
-	xor a
-	ld [wCurPartySpecies], a
-	ld a, POKEMON_PROF
-	ld [wTrainerClass], a
-	call Intro_PrepTrainerPic
-
-	ld b, SCGB_TRAINER_OR_MON_FRONTPIC_PALS
-	call GetSGBLayout
-	call Intro_RotatePalettesLeftFrontpic
-
-	ld hl, OakText5
-	call PrintText
-	call RotateThreePalettesRight
-	call ClearTilemap
-
 	xor a
 	ld [wCurPartySpecies], a
 	farcall DrawIntroPlayerPic
@@ -699,12 +644,13 @@ if !DEF(_DEBUG)
 	ld b, SCGB_TRAINER_OR_MON_FRONTPIC_PALS
 	call GetSGBLayout
 	call Intro_RotatePalettesLeftFrontpic
-endc
+
 	ld hl, OakText6
 	call PrintText
 	call NamePlayer
-	ld hl, OakText7
+    ld hl, OakText7
 	call PrintText
+    farcall SetStartTime
 	ret
 
 OakText1:

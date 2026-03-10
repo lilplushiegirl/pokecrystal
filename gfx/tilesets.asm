@@ -335,3 +335,12 @@ INCBIN "data/tilesets/omanyte_word_room_metatiles.bin"
 
 TilesetAerodactylWordRoomMeta::
 INCBIN "data/tilesets/aerodactyl_word_room_metatiles.bin"
+
+TilesetCityGFX::
+INCBIN "gfx/tilesets/city.2bpp.lz"
+
+TilesetCityMeta::
+INCBIN "data/tilesets/city_metatiles.bin"
+
+TilesetCityColl::
+INCLUDE "data/tilesets/city_collision.asm"

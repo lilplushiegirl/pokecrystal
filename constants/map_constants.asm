@@ -66,4 +66,23 @@ ENDM
 	map_const HALL_OF_FAME,                                 5,  7 ;  7
 	endgroup
 
-DEF NUM_MAP_GROUPS EQU const_value ; 4
+	newgroup ALBA_LITORA                                          ;  5
+	map_const ALBA_NORTH,                                  22,  8 ;  1
+	map_const ALBA_SOUTH,                                  22, 11 ;  2
+	map_const APARTMENT_HALL,                              14,  2 ;  3
+	map_const APARTMENT_LOBBY,                              7,  4 ;  4
+    map_const APARTMENT_ROOM,                               6,  4 ;  5
+	endgroup
+
+	newgroup DUNGEONS                                             ;  6
+    map_const NATIONAL_PARK,                               16, 16 ;  1
+    map_const NATPARK_GATE,                                  5, 4 ;  2
+	endgroup
+
+	newgroup PRIVERA                                              ;  7
+    map_const PRIVERA_FOREST,                              14, 17 ;  1
+    map_const PRIVERA_LAKE,                                20, 15 ;  2
+    map_const PRIVERA_GATE,                                  5, 4 ;  3
+	endgroup
+
+DEF NUM_MAP_GROUPS EQU const_value ; 7

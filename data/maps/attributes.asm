@@ -120,3 +120,24 @@ ENDM
 	map_attributes KarensRoom, KARENS_ROOM, $00, 0
 	map_attributes LancesRoom, LANCES_ROOM, $00, 0
 	map_attributes HallOfFame, HALL_OF_FAME, $00, 0
+
+    map_attributes ApptRoom, APARTMENT_ROOM, $00, 0
+    map_attributes ApptHall, APARTMENT_HALL, $00, 0
+    map_attributes ApptLobby, APARTMENT_LOBBY, $00, 0
+
+	map_attributes NatPark, NATIONAL_PARK, $00, 0
+	map_attributes NatParkGate, NATPARK_GATE, $00, 0
+
+    map_attributes AlbaNorth, ALBA_NORTH, $00, SOUTH
+    connection south, AlbaSouth, ALBA_SOUTH, -2
+
+    map_attributes AlbaSouth, ALBA_SOUTH, $00, NORTH
+    connection north, AlbaNorth, ALBA_NORTH, 2
+
+	map_attributes PriveraGate, PRIVERA_GATE, $00, 0
+
+	map_attributes PriveraForest, PRIVERA_FOREST, $05, NORTH
+    connection north, PriveraLake, PRIVERA_LAKE, 0
+
+	map_attributes PriveraLake, PRIVERA_LAKE, $05, SOUTH
+    connection south, PriveraForest, PRIVERA_FOREST, 0

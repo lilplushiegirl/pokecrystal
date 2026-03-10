@@ -20,6 +20,9 @@ SECTION "Map Scripts 3", ROMX
 INCLUDE "maps/NewBarkTown.asm"
 INCLUDE "maps/PlayersHouse1F.asm"
 INCLUDE "maps/PlayersHouse2F.asm"
+INCLUDE "maps/ApptRoom.asm"
+INCLUDE "maps/ApptHall.asm"
+INCLUDE "maps/ApptLobby.asm"
 
 
 SECTION "Map Scripts 4", ROMX
@@ -35,9 +38,16 @@ INCLUDE "maps/HallOfFame.asm"
 
 SECTION "Map Scripts 5", ROMX
 
+INCLUDE "maps/AlbaNorth.asm"
+INCLUDE "maps/AlbaSouth.asm"
+INCLUDE "maps/NatPark.asm"
+INCLUDE "maps/NatParkGate.asm"
+INCLUDE "maps/PriveraGate.asm"
 
 SECTION "Map Scripts 6", ROMX
 
+INCLUDE "maps/PriveraForest.asm"
+INCLUDE "maps/PriveraLake.asm"
 
 SECTION "Map Scripts 7", ROMX
 

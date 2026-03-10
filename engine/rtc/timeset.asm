@@ -1,123 +1,55 @@
 DEF TIMESET_UP_ARROW   EQU '♂' ; $ef
 DEF TIMESET_DOWN_ARROW EQU '♀' ; $f5
 
+SetStartTime:
+    ldh a, [hInMenu]
+    push af
+    ld a, $1
+    ldh [hInMenu], a
+
+    ; wStart* values (offset from hardware RTC)
+    ld a, THURSDAY
+    ld [wStartDay], a
+    ld a, 19
+    ld [wStartHour], a
+    xor a
+    ld [wStartMinute], a
+    ld [wStartSecond], a
+
+    ; wCurDay and hHours/hMinutes/hSeconds (display values)
+    ld a, THURSDAY
+    ld [wCurDay], a
+    ld a, 19
+    ldh [hHours], a
+    ld a, 45
+    ldh [hMinutes], a
+    ldh [hSeconds], a
+
+    ld a, NITE_F
+    ld [wTimeOfDay], a
+
+    pop af
+    ldh [hInMenu], a
+    ret
+
 InitClock:
-; Ask the player to set the time.
+; skip time-setting, set to 7 PM silently
 	ldh a, [hInMenu]
 	push af
 	ld a, $1
 	ldh [hInMenu], a
-
-	ld a, FALSE
-	ld [wSpriteUpdatesEnabled], a
-	ld a, $10
-	ld [wMusicFade], a
-	ld a, LOW(MUSIC_NONE)
-	ld [wMusicFadeID], a
-	ld a, HIGH(MUSIC_NONE)
-	ld [wMusicFadeID + 1], a
-	ld c, 8
-	call DelayFrames
-	call RotateFourPalettesLeft
-	call ClearTilemap
-	call ClearSprites
-	ld b, SCGB_DIPLOMA
-	call GetSGBLayout
-	xor a
-	ldh [hBGMapMode], a
-	call LoadStandardFont
-	ld de, TimeSetBackgroundGFX
-	ld hl, vTiles2 tile $00
-	lb bc, BANK(TimeSetBackgroundGFX), 1
-	call Request1bpp
-	ld de, TimeSetUpArrowGFX
-	ld hl, vTiles2 tile $01
-	lb bc, BANK(TimeSetUpArrowGFX), 1
-	call Request1bpp
-	ld de, TimeSetDownArrowGFX
-	ld hl, vTiles2 tile $02
-	lb bc, BANK(TimeSetDownArrowGFX), 1
-	call Request1bpp
-	call .ClearScreen
-	call WaitBGMap
-	call RotateFourPalettesRight
-if !DEF(_DEBUG)
-	ld hl, OakTimeWokeUpText
-	call PrintText
-endc
-	ld hl, wTimeSetBuffer
-	ld bc, wTimeSetBufferEnd - wTimeSetBuffer
-	xor a
-	call ByteFill
-	ld a, 10 ; default hour = 10 AM
+	
+	; Set hour to 19 (7 PM)
+	ld a, 19
 	ld [wInitHourBuffer], a
-
-.loop
-	ld hl, OakTimeWhatTimeIsItText
-	call PrintText
-	hlcoord 3, 7
-	ld b, 2
-	ld c, 15
-	call Textbox
-	hlcoord 11, 7
-	ld [hl], $1
-	hlcoord 11, 10
-	ld [hl], $2
-	hlcoord 4, 9
-	call DisplayHourOClock
-	ld c, 10
-	call DelayFrames
-
-.SetHourLoop:
-	call JoyTextDelay
-	call SetHour
-	jr nc, .SetHourLoop
-
-	ld a, [wInitHourBuffer]
-	ld [wStringBuffer2 + 1], a
-	call .ClearScreen
-	ld hl, OakTimeWhatHoursText
-	call PrintText
-	call YesNoBox
-	jr nc, .HourIsSet
-	call .ClearScreen
-	jr .loop
-
-.HourIsSet:
-	ld hl, OakTimeHowManyMinutesText
-	call PrintText
-	hlcoord 11, 7
-	lb bc, 2, 7
-	call Textbox
-	hlcoord 15, 7
-	ld [hl], $1
-	hlcoord 15, 10
-	ld [hl], $2
-	hlcoord 12, 9
-	call DisplayMinutesWithMinString
-	ld c, 10
-	call DelayFrames
-
-.SetMinutesLoop:
-	call JoyTextDelay
-	call SetMinutes
-	jr nc, .SetMinutesLoop
-
-	ld a, [wInitMinuteBuffer]
-	ld [wStringBuffer2 + 2], a
-	call .ClearScreen
-	ld hl, OakTimeWhoaMinutesText
-	call PrintText
-	call YesNoBox
-	jr nc, .MinutesAreSet
-	call .ClearScreen
-	jr .HourIsSet
-
-.MinutesAreSet:
+	
+	; Set minutes to 0
+	xor a
+	ld [wInitMinuteBuffer], a
+	
+	; Initialize the time of day
 	call InitTimeOfDay
-	ld hl, OakText_ResponseToSetTime
-	call PrintText
-	call WaitPressAorB_BlinkCursor
+	
 	pop af
 	ldh [hInMenu], a
 	ret
@@ -291,91 +223,11 @@ PrintTwoDigitNumberLeftAlign:
 	call PrintNum
 	ret
 
-OakTimeWokeUpText:
-	text_far _OakTimeWokeUpText
-	text_end
-
-OakTimeWhatTimeIsItText:
-	text_far _OakTimeWhatTimeIsItText
-	text_end
-
 String_oclock:
 	db "o'clock@"
 
-OakTimeWhatHoursText:
-	; What?@ @
-	text_far _OakTimeWhatHoursText
-	text_asm
-	hlcoord 1, 16
-	call DisplayHourOClock
-	ld hl, .OakTimeHoursQuestionMarkText
-	ret
-
-.OakTimeHoursQuestionMarkText:
-	text_far _OakTimeHoursQuestionMarkText
-	text_end
-
-OakTimeHowManyMinutesText:
-	text_far _OakTimeHowManyMinutesText
-	text_end
-
 String_min:
 	db "min.@"
-
-OakTimeWhoaMinutesText:
-	; Whoa!@ @
-	text_far _OakTimeWhoaMinutesText
-	text_asm
-	hlcoord 7, 14
-	call DisplayMinutesWithMinString
-	ld hl, .OakTimeMinutesQuestionMarkText
-	ret
-
-.OakTimeMinutesQuestionMarkText:
-	text_far _OakTimeMinutesQuestionMarkText
-	text_end
-
-OakText_ResponseToSetTime:
-	text_asm
-	decoord 1, 14
-	ld a, [wInitHourBuffer]
-	ld c, a
-	call PrintHour
-	ld [hl], ':'
-	inc hl
-	ld de, wInitMinuteBuffer
-	lb bc, PRINTNUM_LEADINGZEROS | 1, 2
-	call PrintNum
-	ld b, h
-	ld c, l
-	ld a, [wInitHourBuffer]
-	cp MORN_HOUR
-	jr c, .nite
-	cp DAY_HOUR + 1
-	jr c, .morn
-	cp NITE_HOUR
-	jr c, .day
-.nite
-	ld hl, .OakTimeSoDarkText
-	ret
-.morn
-	ld hl, .OakTimeOversleptText
-	ret
-.day
-	ld hl, .OakTimeYikesText
-	ret
-
-.OakTimeOversleptText:
-	text_far _OakTimeOversleptText
-	text_end
-
-.OakTimeYikesText:
-	text_far _OakTimeYikesText
-	text_end
-
-.OakTimeSoDarkText:
-	text_far _OakTimeSoDarkText
-	text_end
 
 TimeSetBackgroundGFX:
 INCBIN "gfx/new_game/timeset_bg.1bpp"

@@ -37,6 +37,15 @@ PlayersHouse1F_Blocks:
 PlayersHouse2F_Blocks:
 	INCBIN "maps/PlayersHouse2F.blk"
 
+ApptRoom_Blocks:
+    INCBIN "maps/ApptRoom.blk"
+
+ApptHall_Blocks:
+    INCBIN "maps/ApptHall.blk"
+
+ApptLobby_Blocks:
+    INCBIN "maps/ApptLobby.blk"
+
 
 SECTION "Map Blocks 3", ROMX
 
@@ -60,5 +69,33 @@ LancesRoom_Blocks:
 
 HallOfFame_Blocks:
 	INCBIN "maps/HallOfFame.blk"
+
+
+SECTION "Map Blocks 4", ROMX
+
+AlbaNorth_Blocks:
+    INCBIN "maps/AlbaNorth.blk"
+
+AlbaSouth_Blocks:
+    INCBIN "maps/AlbaSouth.blk"
+
+NatPark_Blocks:
+    INCBIN "maps/NatPark.blk"
+
+PriveraGate_Blocks:
+    INCBIN "maps/EastWestGate.blk"
+
+NatParkGate_Blocks:
+    INCBIN "maps/EastWestGate.blk"
+
+
+SECTION "Map Blocks 5", ROMX
+
+PriveraForest_Blocks:
+    INCBIN "maps/PriveraForest.blk"
+
+PriveraLake_Blocks:
+    INCBIN "maps/PriveraLake.blk"
+
 
 ENDSECTION
