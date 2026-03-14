@@ -47,13 +47,13 @@ _TitleScreen:
 ; Apply logo gradient:
 
 ; lines 3-4
-	hlbgcoord 0, 3
-	ld bc, 2 * TILEMAP_WIDTH
+	hlbgcoord 0, 0
+	ld bc, 6 * TILEMAP_WIDTH
 	ld a, 2
 	call ByteFill
 ; line 5
-	hlbgcoord 0, 5
-	ld bc, TILEMAP_WIDTH
+	hlbgcoord 0, 4
+	ld bc, 2 * TILEMAP_WIDTH
 	ld a, 3
 	call ByteFill
 ; line 6
@@ -73,8 +73,8 @@ _TitleScreen:
 	call ByteFill
 
 ; 'CRYSTAL VERSION'
-	hlbgcoord 5, 9
-	ld bc, 11 ; length of version text
+	hlbgcoord 0, 9
+	ld bc, 0 ; length of version text
 	ld a, 1
 	call ByteFill
 

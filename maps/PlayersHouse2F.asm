@@ -49,26 +49,6 @@ PlayersHousePosterScript:
 .Script:
 	describedecoration DECODESC_POSTER
 
-PlayerBed:
-    opentext
-    writetext PlayerBedText1
-    waitbutton
-    closetext
-    special RestartClock
-    special FadeBlackQuickly
-    special ReloadSpritesNoPalettes
-    special StubbedTrainerRankings_Healings
-    ; farcall RestartClock
-    special HealParty
-    playmusic MUSIC_HEAL
-    pause 60
-    special RestartMapMusic
-    special FadeInQuickly
-    opentext
-    writetext PlayerBedText2
-    waitbutton
-    closetext
-    end
 
 PlayersHouseRadioScript:
 	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
